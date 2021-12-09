@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, EmailField
-from wtforms.validators import DataRequired, HostnameValidation, Length, IPAddress, Email, ValidationError
 
+from wtforms.validators import DataRequired, HostnameValidation, Length, IPAddress, Email, ValidationError
 from re import split
 from typing import Sized
 from validators import email, domain, ValidationFailure
