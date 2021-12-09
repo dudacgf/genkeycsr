@@ -15,13 +15,14 @@
         <link rel="stylesheet" href="{{ url_for('.static', filename='css/text.css') }}" />
         <link rel="stylesheet" href="{{ url_for('.static', filename='css/colors.css') }}" />
         <link rel="stylesheet" href="{{ url_for('.static', filename='css/position.css') }}" />
+        {{ fontawesome_css() }}
         {% endblock %}
 
         {% block scripts %}
           <!-- Optional JavaScript -->
           <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-          {% include "javascript_events.html" %}
 	      <script type="text/javascript" src={{ url_for('.static', filename='js/api.js') }}></script>
+          {{ fontawesome_js() }}
         {% endblock %}
 
         {% endblock %}
