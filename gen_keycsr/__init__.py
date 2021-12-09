@@ -3,11 +3,13 @@ import os
 from flask import Flask, render_template, flash
 from flask.helpers import get_flashed_messages
 from flask.json import jsonify
+from flask_fontawesome import FontAwesome
 
 from .libs.genkeycsr import CertNameAttribute, generate_key_and_csr
 from .libs.frmattributes import GenKeyCSRForm
 
 app = Flask(__name__)
+fa = FontAwesome(app)
 
 #
 # configuration settings and defaults
@@ -20,6 +22,7 @@ app.config.from_mapping(
     GENCSR_STATE = 'Some-State',
     GENCSR_LOCALITY = '',
     GENCSR_ORGNAME = 'Internet Widgits Pty Ltd',
+    GENCSR_ORG_UNIT_NAME = '',
     GENCSR_COMMON_NAME = 'CHANGE-ME.COMMON.name',
     GENCSR_EMAIL = '',
     GENCSR_LOGO = '/static/images/keycsr_default_logo.jpg',
@@ -40,7 +43,7 @@ except OSError:
     pass
     
 #
-# route that generates the key/csr pair and sends it back
+# route that generates the key/csr pair and sends it back.
 # receives. request.formdata with the certificate attributes
 # returns: json struc with key and csr in pem format
 @app.route('/generate_key_csr_pair', methods=['POST'])
@@ -73,6 +76,7 @@ def vstest():
     form.state.data=app.config['GENCSR_STATE']
     form.locality.data=app.config['GENCSR_LOCALITY']
     form.org_name.data=app.config['GENCSR_ORGNAME']
+    form.org_unit_name.data=app.config['GENCSR_ORG_UNIT_NAME']
     form.common_name.data=app.config['GENCSR_COMMON_NAME']
     form.email.data=app.config['GENCSR_EMAIL']
     
