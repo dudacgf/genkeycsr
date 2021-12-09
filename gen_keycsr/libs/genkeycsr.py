@@ -1,4 +1,4 @@
-from flask import flash, current_app
+from flask import flash
 import ipaddress
 from ipaddress import AddressValueError
 
