@@ -56,7 +56,7 @@ a:hover { color: var(--icatu-verde); }
 a:active { color: var(--icatu-azul-03); }
 
 .with-bullets {
-    list-style-type: square;
+    list-style-type: circle;
     padding: 2px;
     margin: 1px;
 }
