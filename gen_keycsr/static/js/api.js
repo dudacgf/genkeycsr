@@ -28,7 +28,7 @@ function generate_key_csr_pair() {
              $('#show_key').html(key)
              $('#show_csr').html(csr)
           } else if (response.status == 'error') {
-             $('#show_error').html(response.messages)
+             pop_message(response.messages)
           }
        },
        error: function (response) {
@@ -36,44 +36,43 @@ function generate_key_csr_pair() {
        }
    });
 
-   setTimeout(function() { 
-       $('#show_error').html('');
-   }, 3000);
-
    return;
 }
 
+/* copy the innerHTML of an element to the clipboard
+   receives the name of the element
+   flashes successfuss message
+*/
 function copy_contents(input_field) {
    var copyText = document.getElementById(input_field);
 
    if (copyText.innerHTML.trim() == '') {
-      $('#show_error').html('<span class="warning small tw-bold">Please, generate key/csr pair before copying to clipboard.</span>');
-      setTimeout(function() { 
-         $('#show_error').html('');
-     }, 3000);
-     return;
+      pop_message('<h2>Copy to clipboard:</h2><span class="small">Please, generate key/csr pair before copying to clipboard.<span>');
+      return;
    }
- 
-   navigator.clipboard.writeText(copyText.innerHTML);
- 
+
+   try{
+      navigator.clipboard.writeText(copyText.innerHTML);
+   }
+   catch (error) {
+      pop_message('<h2>Error copying to clipboard ' + error + '</h2>');
+      return;
+   }
+
    /* Alert the copied text */
-   $('#show_error').html('<span class="info small tw-bold">text copied to clipboard</span>');
+   pop_message('<h2>text copied to clipboard</h2>');
 
-   setTimeout(function() { 
-       $('#show_error').html('');
-   }, 3000);
+} 
 
- } 
-
+/* Offers the innertHTML contents of an element as a text/text download
+   receives the id of the element and the name of the extension to be used
+*/
 function download_contents(input_field, extension) {
    var copyText = document.getElementById(input_field);
 
    if (copyText.innerHTML.trim() == '') {
-      $('#show_error').html('<span class="warning small tw-bold">Please, generate key/csr pair before downloading.</span>');
-      setTimeout(function() { 
-         $('#show_error').html('');
-     }, 3000);
-     return;
+      pop_message('<h2>Download:</h2><span class="small">Please, generate key/csr pair before downloading.<span>');
+      return;
    }
  
    var base64_contents = btoa(unescape(encodeURIComponent(copyText.innerHTML))),
@@ -85,4 +84,15 @@ function download_contents(input_field, extension) {
    a.download = common_name + '.' + extension;
    a.href = 'data:text/text;base64,' + base64_contents;
    a.dispatchEvent(e);
+}
+
+/* just pops a message using a field that gets visible when not empty
+   receives: message to be poped
+*/
+function pop_message(message) {
+   $('#show_message').html(message);
+   setTimeout(function() { 
+      $('#show_message').html('');
+   }, 3000);
+   return;
 }
