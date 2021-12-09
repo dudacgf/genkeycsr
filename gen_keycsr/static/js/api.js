@@ -42,3 +42,47 @@ function generate_key_csr_pair() {
 
    return;
 }
+
+function copy_contents(input_field) {
+   var copyText = document.getElementById(input_field);
+
+   if (copyText.innerHTML.trim() == '') {
+      $('#show_error').html('<span class="warning small tw-bold">Please, generate key/csr pair before copying to clipboard.</span>');
+      setTimeout(function() { 
+         $('#show_error').html('');
+     }, 3000);
+     return;
+   }
+ 
+   navigator.clipboard.writeText(copyText.innerHTML);
+ 
+   /* Alert the copied text */
+   $('#show_error').html('<span class="info small tw-bold">text copied to clipboard</span>');
+
+   setTimeout(function() { 
+       $('#show_error').html('');
+   }, 3000);
+
+ } 
+
+function download_contents(input_field, extension) {
+   var copyText = document.getElementById(input_field);
+
+   if (copyText.innerHTML.trim() == '') {
+      $('#show_error').html('<span class="warning small tw-bold">Please, generate key/csr pair before downloading.</span>');
+      setTimeout(function() { 
+         $('#show_error').html('');
+     }, 3000);
+     return;
+   }
+ 
+   var base64_contents = btoa(unescape(encodeURIComponent(copyText.innerHTML))),
+          a = document.createElement('a'),
+          e = new MouseEvent('click');
+    
+   var common_name = document.getElementById('common_name').value;
+
+   a.download = common_name + '.' + extension;
+   a.href = 'data:text/text;base64,' + base64_contents;
+   a.dispatchEvent(e);
+}
