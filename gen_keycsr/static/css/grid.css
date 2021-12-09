@@ -62,7 +62,7 @@ content-key {
     margin-right: 2px;
 }
 
-.content-error {
+.content-message {
     position: absolute;
     top: 10%;
     left: calc(50% - 200px);
@@ -74,15 +74,14 @@ content-key {
     margin-top: 2%;
     margin-bottom: 2%;
     padding: 10px;
-    box-shadow: 2px var(--primary);
     background-color: var(--dark);
-    opacity:0.75;
+    opacity:0.60;
     color: var(--white);
     border: 1px solid var(--dark);
     border-radius: 10px;
     z-index:100; 
 }
 
-.content-error:empty {
+.content-message:empty {
     display: none;
 }
