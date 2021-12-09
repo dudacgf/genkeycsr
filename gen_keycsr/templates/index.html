@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="header light bg-icatu-azul-01"> 
+    <h1>Certificate Key/Signing Request</h1> 
+</section>
+<section class="nav-left icatu-azul-01 ">
+  <div style="text-align: center">
+    <img src={{ config['GENCSR_LOGO'] }} width="auto" height="80"/>
+  </div>
+  {% include "instructions.html" %}
+</section>
+<section class="content icatu-azul-01 bg-light">
+  <p />
+  <div>
+    <form method="POST" action="/">
+      <section id="theForm" class="content-box">
+        {{ form.csrf_token }}
+        <div class="ta-right normal">{{ form.country.label }}:</div> <div>{{ form.country }}</div>
+        <div class="ta-right normal">{{ form.state.label }}:</div> <div>{{ form.state }}</div>
+        <div class="ta-right normal">{{ form.locality.label }}:</div> <div>{{ form.locality }}</div>
+        <div class="ta-right normal">{{ form.org_name.label }}:</div> <div>{{ form.org_name }}</div>
+        <div class="ta-right normal">{{ form.common_name.label }}:</div> <div>{{ form.common_name }}</div>
+        <div class="ta-right normal">{{ form.email.label }}:</div> <div>{{ form.email }}</div>
+        <div class="ta-right normal">{{ form.ipaddr.label }}:</div> <div>{{ form.ipaddr }}</div>
+        
+      </section>
+      <div class="content-row" style="text-align: center;">
+        <hr>
+        <input type="button" id="generate_pair" onclick="generate_key_csr_pair()" class="white bg-success b-10 b-info " value="Generate Key/CSR Pair">
+      </div>
+      <hr>
+    </form>
+    <section class="content-box">
+      <div id="show_error" class="content-error">
+      </div>
+    </section>
+    <section class="content-box">
+      <div class="content-key">
+        KEY <i class="far fa-copy"></i>
+        <pre id="show_key">
+        </pre>
+      </div>
+      <div class="content-key">
+        CSR
+        <pre id="show_csr">
+        </pre>
+      </div>
+    </section>
+</section>
+{% endblock %} 

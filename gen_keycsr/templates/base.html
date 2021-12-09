@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <title>{% block title %}Certificate Key/Signing Request{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ config['GENCSR_FAVICON'] }}">
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        {% block styles %}
+        <link rel="stylesheet" href="{{ url_for('.static', filename='fonts/ff-clan.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('.static', filename='css/grid.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('.static', filename='css/text.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('.static', filename='css/colors.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('.static', filename='css/position.css') }}" />
+        {% endblock %}
+
+        {% block scripts %}
+          <!-- Optional JavaScript -->
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          {% include "javascript_events.html" %}
+	      <script type="text/javascript" src={{ url_for('.static', filename='js/api.js') }}></script>
+        {% endblock %}
+
+        {% endblock %}
+    </head>
+    <body class="grid-container">
+        {% block content %}        {% endblock %}
+        
+        {% block footer %}         {% endblock %}
+    </body>
+</html>

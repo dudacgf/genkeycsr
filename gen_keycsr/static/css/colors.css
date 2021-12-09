@@ -1,0 +1,67 @@
+:root {
+    --icatu-azul-01: #1b3157;
+    --icatu-azul-02: #6aa2b9;
+    --icatu-azul-03: #d5dbe9;
+    --icatu-verde: #5fbb47;
+    --icatu-old-azul: #006d69;
+
+    --primary: #6f6f6f;
+    --secondary: #cfcfcf;
+    --warning: #aa1e1e;
+    --success: var(--icatu-verde);
+    --info: var(--icatu-old-azul);
+    --error: #f56012;
+    --dark: #303030;
+    --light: #eeeeee;
+    --white: #f0f0f0;
+
+}
+
+.primary { color: var(--primary); }
+.secondary { color: var(--secondary); }
+.warning { color: var(--warning); }
+.success { color: var(--success); }
+.info { color: var(--info); }
+.error { color: var(--error); }
+.dark { color: var(--dark); }
+.light { color: var(--light); }
+.white { color: var(--white); }
+
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-warning { background-color: var(--warning); }
+.bg-success { background-color: var(--success); }
+.bg-info { background-color: var(--info); }
+.bg-error { background-color: var(--error); }
+.bg-dark { background-color: var(--dark); }
+.bg-light { background-color: var(--light); }
+.bg-white { background-color: var(--white); }
+
+border { border-width: solid 1rem; }
+.b-10 { border-width: solid 0.1rem; }
+.b-25 { border-width: solid 0.25rem; }
+.b-50 { border-width: solid 0.50rem; }
+.b-75 { border-width: solid 0.75rem;}
+
+.b-primary { border-color: var(--primary); }
+.b-secondary { border-color: var(--secondary); }
+.b-warning { border-color: var(--warning); }
+.b-success { border-color: var(--success); }
+.b-info { border-color: var(--info); }
+.b-error { border-color: var(--error); }
+.b-dark { border-color: var(--dark); }
+.b-light { border-color: var(--light); }
+.b-white { border-color: var(--white); }
+
+.icatu-azul-01 { color: var(--icatu-azul-01); }
+.icatu-azul-02 { color: var(--icatu-azul-02); }
+.icatu-azul-03 { color: var(--icatu-azul-03); }
+.icatu-verde { color: var(--icatu-verde) }
+.icatu-old-azul { color: var(--icatu-old-azul); }
+
+.bg-icatu-azul-01 { background-color: var(--icatu-azul-01) }
+.bg-icatu-azul-02 { background-color: var(--icatu-azul-02); }
+.bg-icatu-azul-03 { background-color: var(--icatu-azul-03); }
+.bg-icatu-verde { background-color: var(--icatu-verde) }
+.bg-icatu-old-azul { background-color: var(--icatu-old-azul); }
+

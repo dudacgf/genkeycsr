@@ -1,0 +1,32 @@
+p-wide {
+    padding: 4px;
+}
+
+p-normal {
+    padding: 2px;
+}
+
+p-fit {
+    padding: 1px;
+}
+
+p-none {
+    padding: 0;
+}
+
+m-wide {
+    margin: 4px;
+}
+
+m-normal {
+    margin: 2px;
+}
+
+m-fit {
+    margin: 1px;
+}
+
+m-none {
+    margin: 0;
+}
+

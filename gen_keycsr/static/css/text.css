@@ -1,0 +1,90 @@
+body {
+    font-family: 'Clan Pro';
+}
+
+h1 {
+    font-family: 'Clan Pro Bold';
+    font-size: xx-large;
+    font-weight: bolder;
+    margin: 0;
+    padding-top: 1rem;
+}
+
+h2 {
+    font-size: small;
+    font-weight: bold;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 0;
+}
+
+h3 {
+    font-size: smaller;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin: 0;
+}
+
+hr {
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 0.001rem;
+    color: var(--icatu-verde);
+    border-style: solid;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+pre {
+    font-family:'Courier New', Courier, monospace;
+    font-size: xx-small;
+    border: 1px dotted var(--icatu-azul-01);
+    color: black;
+    background-color: white;
+    overflow: auto;
+    height: 30vh;
+    padding: 10px;
+}
+
+a { text-decoration: none; }
+a:link { color: var(--icatu-azul-01); }
+a:visited { color: var(--icatu-azul-02); }
+a:hover { color: var(--icatu-verde); }
+a:active { color: var(--icatu-azul-03); }
+
+.with-bullets {
+    list-style-type: square;
+    padding: 2px;
+    margin: 1px;
+}
+
+li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.normal {
+    font-size: smaller;
+    font-weight: 100;
+    padding-top: 4px;
+    padding-bottom: 1px;
+}
+
+.small {
+    font-size: xx-small;
+    font-weight: lighter;
+    padding-bottom: 1px;
+}
+
+.tw-bold {
+    font-weight: bold;
+}
+
+.ta-right {
+    text-align: right;
+    padding-right: 10px;
+}

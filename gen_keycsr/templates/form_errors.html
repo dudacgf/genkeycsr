@@ -1,0 +1,42 @@
+<div class="content-error border b-25 b-primary">
+  {% if form.errors %}
+  <ul class="small warning bg-white">
+    <h2>Errors in form</h2>
+    {% if form.country.errors %}
+      {% for error in form.country.errors %}
+      <li> country = {{ error }} </li>
+      {% endfor %}
+    {% endif %}
+    {% if form.state.errors %}
+      {% for error in form.state.errors %}
+      <li> state = {{ error }} </li>
+      {% endfor %}
+    {% endif %}
+    {% if form.locality.errors %}
+      {% for error in form.locality.errors %}
+      <li> locality = {{ error }} </li>
+      {% endfor %}
+    {% endif %}
+    {% if form.org_name.errors %}
+      {% for error in form.org_name.errors %}
+      <li> org_name = {{ error }} </li>
+      {% endfor %}
+    {% endif %}
+    {% if form.common_name.errors %}
+      {% for error in form.common_name.errors %}
+      <li> Common_Name = {{ error }} </li>
+      {% endfor %}
+    {% endif %}
+    {% if form.email.errors %}
+      {% for error in form.email.errors %}
+      <li> email = {{ error }} </li>
+      {% endfor %}
+    {% endif %}
+    {% if form.ipaddr.errors %}
+      {% for error in form.ipaddr.errors %}
+      <li> ipaddr = {{ error }} </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+  {% endif %}
+</div>
