@@ -14,7 +14,7 @@
   <p />
   <div>
     <form method="POST" action="/">
-      <section id="theForm" class="content-box">
+      <section id="theForm" class="content-form">
         {{ form.csrf_token }}
         <div></div><div class="warning small">* required fields</div>
         <div class="ta-right normal">{{ form.country.label }}<span class="warning small">*</span>:</div>
@@ -41,11 +41,7 @@
       </div>
       <hr>
     </form>
-    <section class="content-box">
-      <div id="show_error" class="content-error">
-      </div>
-    </section>
-    <section class="content-box">
+    <section class="content-results">
       <div class="content-key">
         KEY 
         <span onclick="copy_contents('show_key')" style="cursor: pointer;"><i class="fa fa-copy"></i></span>
@@ -61,5 +57,7 @@
         </pre>
       </div>
     </section>
+    <hr>
 </section>
+<section class="content-message" id="show_message"></section>
 {% endblock %} 
