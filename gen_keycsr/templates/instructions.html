@@ -1,18 +1,28 @@
-<hr class="icatu-azul-01">
+<hr class="icatu-azul-01" style="margin-top: 0px; margin-left: 4px; margin-bottom: 10px; margin-right: 4px;">
 <p />
   <span style="margin: 3px;">Instructions:</span>
   <div class="small">
     <p />
     <ul class="icatu-azul-01">
-        <li  class="with-bullets"><span class="tw-bold">Insert</span> correct values in the fields.</li>
+        <li class="with-bullets"><span class="tw-bold">Insert</span> correct values in the fields.</li>
         <li class="with-bullets">. Country is a valid 2-letter code as in <a href="https://en.wikipedia.org/wiki/ISO_3166-1">iso-3166-alpha</a>.</li>
+        <li class="with-bullets">. org_unit_name is optional. It is the only non required field.
         <li class="with-bullets">. State, locality and org_name are free to type text.</li>
         <li class="with-bullets">. Common name is the fully qualified host name.</li>
         <li class="with-bullets">. IPAddress is a valid ip address. I should check if common_name resolves to this ip address, but I'm lazy and if it doesn't works it's not my problem</li>
     </ul>
     <p />
-    <p style="margin: 2px;">
-       <span class="tw-bold">Click</span> 'Generate Key/CSR Pair' button. The new Key and CSR will be shown bellow the form. 
-       Copy and Paste them into empty text files and save them as <br />{common_name}.key<br /> and <br />{common_name}.csr.
+    <hr class="icatu-azul-01" style="margin-top: 10px; margin-left: 4px; margin-bottom: 10px; margin-right: 4px;">
+    <p style="margin: 4px;">
+       <span class="tw-bold">Click</span> 'Generate Key/CSR Pair' button.<br/>
+       The new Key and CSR will be shown bellow the form.
+    </p>
+    <hr class="icatu-azul-01" style="margin-top: 10px; margin-left: 4px; margin-bottom: 10px; margin-right: 4px;">
+    <p style="margin: 4px;">
+       You can <span class="tw-bold">Copy</span> them to the clipboard or<br>
+       You can <span class="tw-bold">download</span> them as <br />
+       <span class="dark tw-bold">{common_name}.key</span>
+       <br /> and <br />
+       <span class="dark tw-bold">{common_name}.csr</span>.
     </p>
   </div>
