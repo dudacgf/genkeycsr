@@ -1,7 +1,7 @@
-<div class="content-error border b-25 b-primary">
+<div class="p-normal">
   {% if form.errors %}
-  <ul class="small warning bg-white">
-    <h2>Errors in form</h2>
+  <ul class="small">
+    <h2>Errors in form:</h2>
     {% if form.country.errors %}
       {% for error in form.country.errors %}
       <li> country = {{ error }} </li>
