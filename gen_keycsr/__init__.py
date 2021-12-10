@@ -18,20 +18,20 @@ app.config.from_mapping(
     UPLOAD_FOLDER = '/var/tmp',
     SESSION_COOKIE_SAMESITE = "Lax",
     # FICTITIOUS COUNTRY TO FILL THE FORM FIELDS
-    GENCSR_COUNTRY = 'AU',
-    GENCSR_STATE = 'Some-State',
-    GENCSR_LOCALITY = '',
-    GENCSR_ORGNAME = 'Internet Widgits Pty Ltd',
-    GENCSR_ORG_UNIT_NAME = '',
-    GENCSR_COMMON_NAME = 'CHANGE-ME.COMMON.name',
-    GENCSR_EMAIL = '',
-    GENCSR_LOGO = '/static/images/keycsr_default_logo.jpg',
-    GENCSR_FAVICON = '/static/images/keycsr_default_logo.png'
+    GENKEYCSR_COUNTRY = 'AU',
+    GENKEYCSR_STATE = 'Some-State',
+    GENKEYCSR_LOCALITY = '',
+    GENKEYCSR_ORGNAME = 'Internet Widgits Pty Ltd',
+    GENKEYCSR_ORG_UNIT_NAME = '',
+    GENKEYCSR_COMMON_NAME = 'CHANGE-ME.COMMON.name',
+    GENKEYCSR_EMAIL = '',
+    GENKEYCSR_LOGO = '/static/images/keycsr_default_logo.jpg',
+    GENKEYCSR_FAVICON = '/static/images/keycsr_default_logo.png'
 )
-# you can put any config option in a python file and set its path via ENVVAR GENCSR_CONFIG_PATH
-if 'GENCSR_CONFIG_PATH' in os.environ:
+# you can put any config option in a python file and set its path via ENVVAR GENKEYCSR_CONFIG_PATH
+if 'GENKEYCSR_CONFIG_PATH' in os.environ:
     try:
-        app.config.from_pyfile(os.environ.get('GENCSR_CONFIG_PATH'))
+        app.config.from_pyfile(os.environ.get('GENKEYCSR_CONFIG_PATH'))
     except FileNotFoundError:
         pass
 
@@ -72,13 +72,13 @@ def generate_pair():
 @app.route('/', methods=['POST', 'GET'])
 def vstest():
     form = GenKeyCSRForm()            
-    form.country.data=app.config['GENCSR_COUNTRY']
-    form.state.data=app.config['GENCSR_STATE']
-    form.locality.data=app.config['GENCSR_LOCALITY']
-    form.org_name.data=app.config['GENCSR_ORGNAME']
-    form.org_unit_name.data=app.config['GENCSR_ORG_UNIT_NAME']
-    form.common_name.data=app.config['GENCSR_COMMON_NAME']
-    form.email.data=app.config['GENCSR_EMAIL']
+    form.country.data=app.config['GENKEYCSR_COUNTRY']
+    form.state.data=app.config['GENKEYCSR_STATE']
+    form.locality.data=app.config['GENKEYCSR_LOCALITY']
+    form.org_name.data=app.config['GENKEYCSR_ORGNAME']
+    form.org_unit_name.data=app.config['GENKEYCSR_ORG_UNIT_NAME']
+    form.common_name.data=app.config['GENKEYCSR_COMMON_NAME']
+    form.email.data=app.config['GENKEYCSR_EMAIL']
     
     return render_template('index.html', form=form)
 
