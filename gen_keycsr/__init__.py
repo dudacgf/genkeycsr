@@ -64,19 +64,24 @@ def generate_pair():
     attributes = CertNameAttribute()
     form.populate_obj(attributes)
     
-    # generate the key/csr pair
-    name = attributes.common_name[0]
-    domain = attributes.common_name[1:]
+    # generate the private key
     key = generate_key(app.config['GENKEYCSR_KEY_SIZE'])
     if key is None:
-        flash('error', 'problem generating the key/csr pair')
-        return jsonify({'status': 'error', 'messages': get_flashed_messages()})
+        flash('error', 'problem generating the key/csr pai.r')
+        return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
 
+    # generate the csr/self-signed crt depending on self_signed checkbox received from form
     if not attributes.self_signed:
         cert = generate_cert_sign_request(key, attributes)
+        if cert is None:
+            flash('error', 'problem generating certificate signing request.')
+            return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
         cert_pem = csr_to_pem(cert)
     else:
         cert = generate_cert_self_signed(key, attributes)
+        if cert is None:
+            flash('error', 'problem generating self-signed certificate.')
+            return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
         cert_pem = sscrt_to_pem(cert)
 
     flash('success', 'key/cert (signing request or self-signed) pair generated successfuly')
