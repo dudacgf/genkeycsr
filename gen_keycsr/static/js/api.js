@@ -5,7 +5,7 @@
    key: private rsa key in pem format
    csr: private certificate signing request in pem format
 */
-function generate_key_csr_pair() {
+function generate_pair() {
    var form_data = new FormData();
    
    $("form :input").each(function(){
@@ -15,7 +15,7 @@ function generate_key_csr_pair() {
   });
 
    $.ajax({
-       url: '/generate_key_csr_pair',
+       url: '/generate_pair',
        cache: false,
        contentType: false,
        processData: false,
@@ -23,10 +23,8 @@ function generate_key_csr_pair() {
        type: 'post',
        success: function (response) {
           if (response.status == 'success') {
-             var key = response.key.replace('\n', '\n\r')
-             var csr = response.csr.replace('\n', '\n\r')
-             $('#show_key').html(key)
-             $('#show_csr').html(csr)
+             $('#show_key').html(response.key)
+             $('#show_cert').html(response.cert)
           } else if (response.status == 'error') {
              pop_message(response.messages)
           }
@@ -67,7 +65,7 @@ function copy_contents(input_field) {
 /* Offers the innertHTML contents of an element as a text/text download
    receives the id of the element and the name of the extension to be used
 */
-function download_contents(input_field, extension) {
+function download_contents(input_field, field) {
    var copyText = document.getElementById(input_field);
 
    if (copyText.innerHTML.trim() == '') {
@@ -80,6 +78,11 @@ function download_contents(input_field, extension) {
           e = new MouseEvent('click');
     
    var common_name = document.getElementById('common_name').value;
+   if (field == 'cert') {
+      var extension = document.getElementById('cert_title').textContent.toLowerCase();
+   } else {
+      var extension = 'key';
+   }
 
    a.download = common_name + '.' + extension;
    a.href = 'data:text/text;base64,' + base64_contents;
@@ -95,4 +98,16 @@ function pop_message(message) {
       $('#show_message').html('');
    }, 3000);
    return;
+}
+
+/* Changes the title of the self-signed certificate/certificate signing request region */
+function change_csr_crt_div_title() {
+   var self_signed = document.getElementById('self_signed');
+   var cert_title = document.getElementById('cert_title')
+
+   if (self_signed.checked) {
+      cert_title.textContent = 'CRT ';
+   } else {
+      cert_title.textContent = 'CSR ';
+   }
 }

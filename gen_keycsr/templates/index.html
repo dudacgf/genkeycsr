@@ -35,11 +35,13 @@
         <div>{{ form.email }}</div>
         <div class="ta-right normal">{{ form.ipaddr.label }}<span class="warning small">*</span>:</div>
         <div>{{ form.ipaddr }}</div>
+        <div class="ta-right normal">{{ form.self_signed.label }}<span class="warning small">*</span>:</div>
+        <div>{{ form.self_signed }}</div>
         
       </section>
       <div class="content-row" style="text-align: center;">
         <hr>
-        <input type="button"  style="cursor: pointer;" id="generate_pair" onclick="generate_key_csr_pair()" class="white bg-success p-wide br-5 b-10 b-info " value="Generate Key/CSR Pair" />
+        <input type="button"  style="cursor: pointer;" onclick="generate_pair()" class="white bg-success p-wide br-5 b-10 b-info w-10 " value="Generate!" />
       </div>
       <hr>
     </form>
@@ -52,10 +54,10 @@
         </pre>
       </div>
       <div class="content-key">
-        CSR 
-        <span onclick="copy_contents('show_csr')" style="cursor: pointer;"><i class="fa fa-copy"></i></span>
-        <span onclick="download_contents('show_csr', 'csr')" style="cursor: pointer;"><i class="fa fa-download"></i></span>
-        <pre id="show_csr">
+        <span id="cert_title">CSR </span>
+        <span onclick="copy_contents('show_cert')" style="cursor: pointer;"><i class="fa fa-copy"></i></span>
+        <span onclick="download_contents('show_cert', 'cert')" style="cursor: pointer;"><i class="fa fa-download"></i></span>
+        <pre id="show_cert">
         </pre>
       </div>
     </section>

@@ -1,10 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, EmailField
+from wtforms import StringField, EmailField, BooleanField
 
-from wtforms.validators import DataRequired, HostnameValidation, Length, IPAddress, Email, ValidationError
-from re import split
+from wtforms.validators import DataRequired, Length, IPAddress, ValidationError
 from typing import Sized
-from validators import email, domain, ValidationFailure
+from validators import email, domain
 from iso3166 import countries
 
 class GenKeyCSRForm(FlaskForm):
@@ -25,7 +24,9 @@ class GenKeyCSRForm(FlaskForm):
     ipaddr = StringField('IP Address',
                           validators=[DataRequired(message='Please enter a valid IP Address.'), 
                           IPAddress(ipv4=True, ipv6=False, message='please enter a valid IP address')])
-    
+    self_signed = BooleanField('Self Signed', 
+                          render_kw={"onclick": 'change_csr_crt_div_title()', 'DefaultChecked': 'false'})
+
     def validate_country(form, field):
         try:
             countries.get(field.data)

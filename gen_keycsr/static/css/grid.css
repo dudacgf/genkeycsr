@@ -33,7 +33,7 @@
 .content-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(10, 1fr);
     grid-auto-rows: 40%;
     margin: 5px;
     padding-top: 1px;
