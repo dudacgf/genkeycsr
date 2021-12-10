@@ -14,6 +14,10 @@ function generate_pair() {
       form_data.append(field_name, field_value);
   });
 
+  /* corrects value of self_signed field. If I used field_value, it would be always 'y' (and I don't know why) */
+  var self_signed = document.getElementById('self_signed');
+  form_data.set('self_signed', self_signed.checked); 
+
    $.ajax({
        url: '/generate_pair',
        cache: false,
