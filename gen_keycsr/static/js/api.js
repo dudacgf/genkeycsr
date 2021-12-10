@@ -14,9 +14,9 @@ function generate_pair() {
       form_data.append(field_name, field_value);
   });
 
-  /* corrects value of self_signed field. If I used field_value, it would be always 'y' (and I don't know why) */
-  var self_signed = document.getElementById('self_signed');
-  form_data.set('self_signed', self_signed.checked); 
+   /* corrects value of self_signed field. If I used $(this).val(), it would be always 'y' (and I don't know why) */
+   var self_signed = document.getElementById('self_signed');
+   form_data.set('self_signed', self_signed.checked); 
 
    $.ajax({
        url: '/generate_pair',
@@ -77,9 +77,10 @@ function download_contents(input_field, field) {
       return;
    }
  
-   var base64_contents = btoa(unescape(encodeURIComponent(copyText.innerHTML))),
-          a = document.createElement('a'),
-          e = new MouseEvent('click');
+/*   var base64_contents = btoa(unescape(encodeURIComponent(copyText.innerHTML))),  */
+   var base64_contents = btoa(copyText.innerHTML);
+   var a = document.createElement('a');
+   var  e = new MouseEvent('click');
     
    var common_name = document.getElementById('common_name').value;
    if (field == 'cert') {
