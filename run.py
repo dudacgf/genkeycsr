@@ -13,8 +13,9 @@ if __name__ == "__main__":
         host='0.0.0.0', 
         port=port, 
         debug=True, 
-        ssl_context=(
-            '/etc/apache2/ssl/cert.pem',
-            '/etc/apache2/ssl/key.pem'
-        )
+        # configuration to run standalone with ssl
+        #ssl_context=(
+        #    '/etc/letsencrypt/archive/fully-qualified.domain.name/cert1.pem',
+        #    '/etc/letsencrypt/archive/fully-qualified.domain.name/privkey1.pem'
+        #)
     )
