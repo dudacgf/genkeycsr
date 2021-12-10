@@ -21,11 +21,11 @@ class GenKeyCSRForm(FlaskForm):
                           validators=[DataRequired(message='Please enter a full qualified common name.')])
     email = EmailField('Email Address', 
                           validators=[DataRequired(message='Please enter a valid email.')])
-    ipaddr = StringField('IP Address',
+    ipaddr = StringField('IP Address', 
                           validators=[DataRequired(message='Please enter a valid IP Address.'), 
                           IPAddress(ipv4=True, ipv6=False, message='please enter a valid IP address')])
-    self_signed = BooleanField('Self Signed', 
-                          render_kw={"onclick": 'change_csr_crt_div_title()', 'DefaultChecked': 'false'})
+    self_signed = BooleanField('Self Signed', false_values=None,
+                          render_kw={"onclick": 'change_csr_crt_div_title()'})
 
     def validate_country(form, field):
         try:
