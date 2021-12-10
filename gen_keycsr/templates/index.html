@@ -6,7 +6,7 @@
 </section>
 <section class="nav-left icatu-azul-01 ">
   <div style="text-align: center">
-    <img src={{ config['GENKEYCSR_LOGO'] }} width="auto" height="80"/>
+    <img src={{ url_for('.static', filename=config['GENKEYCSR_LOGO']) }} width="auto" height="80"/>
   </div>
   {% include "instructions.html" %}
 </section>
