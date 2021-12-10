@@ -1,12 +1,16 @@
 p-wide {
-    padding: 4px;
+    padding: 8px;
 }
 
 p-normal {
-    padding: 2px;
+    padding: 4px;
 }
 
 p-fit {
+    padding: 2px;
+}
+
+p-small {
     padding: 1px;
 }
 

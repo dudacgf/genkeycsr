@@ -13,7 +13,9 @@
 <section class="content icatu-azul-01 bg-light">
   <p />
   <div>
+    <hr>
     <form method="POST" action="/">
+      <section class="content-row form-title tw-bold" style="text-align: center">Certificate Attributes</section>
       <section id="theForm" class="content-form">
         {{ form.csrf_token }}
         <div></div><div class="warning small">* required fields</div>
@@ -37,7 +39,7 @@
       </section>
       <div class="content-row" style="text-align: center;">
         <hr>
-        <input type="button"  style="cursor: pointer;" id="generate_pair" onclick="generate_key_csr_pair()" class="white bg-success b-10 b-info " value="Generate Key/CSR Pair" />
+        <input type="button"  style="cursor: pointer;" id="generate_pair" onclick="generate_key_csr_pair()" class="white bg-success p-wide br-5 b-10 b-info " value="Generate Key/CSR Pair" />
       </div>
       <hr>
     </form>

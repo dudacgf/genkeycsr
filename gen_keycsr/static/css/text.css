@@ -69,6 +69,10 @@ li {
     margin: 0;
 }
 
+.form-title {
+    font-size: larger;
+}
+
 .normal {
     font-size: smaller;
     font-weight: 100;
