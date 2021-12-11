@@ -37,8 +37,8 @@
       <li> ipaddr = {{ error }} </li>
       {% endfor %}
     {% endif %}
-    {% for message, category in messsages %}
-       <li> {{ category }}: {{ message }}</li>
+    {% for message in messages %}
+       <li> {{ message.category }}: {{ message.message }}</li>
     {% endfor %}
   </ul>
   {% endif %}

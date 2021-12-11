@@ -44,7 +44,7 @@ except OSError:
     pass
 
 def flash_messages_to_dict():
-    messages = [{'message': m, 'category':c} for c, m in
+    messages = [{'message': m, 'category':c} for m, c in
             get_flashed_messages(with_categories=True)];
     return messages
 
@@ -56,7 +56,7 @@ def flash_messages_to_dict():
 def generate_pair():
     form = GenKeyCSRForm()
     if not form.validate_on_submit():
-        flash('--error validating form--')
+        flash('error', 'Problem validating form. Try reloading the page.')
         return jsonify({'status': 'error', 'messages': render_template('form_errors.html', form=form, messages = flash_messages_to_dict())})
 
     attributes = CertNameAttributes()
@@ -73,7 +73,7 @@ def generate_pair():
         flash('error', 'problem generating the key/csr pair.')
         return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
 
-    # generate the (csr/self-signed crt) depending on self_signed checkbox received from form
+    # generate a csr or a self-signed crt depending on self_signed checkbox received from form
     if not attributes.self_signed:
         cert = generator.new_csr()
         if cert is None:
