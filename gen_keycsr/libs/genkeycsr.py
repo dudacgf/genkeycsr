@@ -13,6 +13,7 @@ from cryptography.x509.oid import NameOID
 from cryptography.hazmat.primitives import hashes
 from cryptography.exceptions import InvalidKey
 
+# this class is probably useless and Generator could be used in it's place. Next version, maybe
 class CertNameAttributes(object):
     def __init__(self, country: str=None, state: str=None, locality: str=None,
                  org_name: str=None, org_unit_name: str=None, common_name: str=None, email: str=None, 

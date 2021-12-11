@@ -51,7 +51,7 @@ def flash_messages_to_dict():
 #
 # route that generates the key/(csr/self-signed crt) pair and sends it back.
 # receives: request.formdata with the certificate attributes
-# returns: json struc with key and csr in pem format
+# returns: json struc with key and (csr/self-signed crt) in pem format
 @app.route('/generate_pair', methods=['POST'])
 def generate_pair():
     form = GenKeyCSRForm()
@@ -64,12 +64,16 @@ def generate_pair():
     
     # generate the private key
     generator = CriptographyGenerator(attributes=attributes)
+    if generator is None:
+        flash('error', 'problem creating generator instance.')
+        return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
+        
     key = generator.new_key()
     if key is None:
-        flash('error', 'problem generating the key/csr pai.r')
+        flash('error', 'problem generating the key/csr pair.')
         return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
 
-    # generate the csr/self-signed crt depending on self_signed checkbox received from form
+    # generate the (csr/self-signed crt) depending on self_signed checkbox received from form
     if not attributes.self_signed:
         cert = generator.new_csr()
         if cert is None:
@@ -87,7 +91,7 @@ def generate_pair():
     return jsonify({'status': 'success', 'key': generator.key_to_pem(), 'cert': cert_pem})
 
 # 
-# main route. populate form with attribute default values (mine or from configuration {file}.py)
+# main route. populates form with attribute default values (mine or from configuration {file}.py)
 @app.route('/', methods=['POST', 'GET'])
 def vstest():
     form = GenKeyCSRForm()            
