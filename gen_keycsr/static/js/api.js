@@ -1,7 +1,7 @@
 /* calls route to generate pair. 
    response will be a json object containing
    status: 'error' 'success'
-   messages: any flashed messages triggered during processing
+   messages: any messages triggered during processing
    key: private rsa key in pem format
    csr: private certificate signing request in pem format
 */
@@ -77,7 +77,6 @@ function download_contents(input_field, field) {
       return;
    }
  
-/*   var base64_contents = btoa(unescape(encodeURIComponent(copyText.innerHTML))),  */
    var base64_contents = btoa(copyText.innerHTML);
    var a = document.createElement('a');
    var  e = new MouseEvent('click');
@@ -105,7 +104,7 @@ function pop_message(message) {
    return;
 }
 
-/* Changes the title of the self-signed certificate/certificate signing request region */
+/* Changes the title of the certificate result region (CSR<->CRT) when self_signed checkbox is clicked */
 function change_csr_crt_div_title() {
    var self_signed = document.getElementById('self_signed');
    var cert_title = document.getElementById('cert_title')
