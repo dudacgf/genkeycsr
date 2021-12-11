@@ -138,13 +138,13 @@ function change_csr_crt_div_title() {
 
 /** Used to map characters to HTML entities. */
 const htmlEscapes = {
-   '&': '&amp;',
-   '<': '&lt;',
-   '>': '&gt;',
-   '"': '&quot;',
-   "'": '&#39;'
- }
- 
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+}
+
 /** Used to match HTML entities and HTML characters. */
 const reUnescapedHtml = /[&<>"']/g
 const reHasUnescapedHtml = RegExp(reUnescapedHtml.source)
