@@ -1,5 +1,5 @@
 body {
-    font-family: 'Clan Pro';
+    font-family: 'Clan Pro News';
     display: grid;
 }
 
@@ -13,7 +13,7 @@ h1 {
 }
 
 h2 {
-    font-size: small;
+    font-size: large;
     font-weight: bold;
     padding-top: 2px;
     padding-bottom: 2px;
@@ -35,11 +35,6 @@ hr {
     border-style: solid;
 }
 
-ul {
-    padding: 0;
-    margin: 0;
-}
-
 pre {
     font-family:'Courier New', Courier, monospace;
     font-size: xx-small;
@@ -48,6 +43,7 @@ pre {
     background-color: white;
     overflow: auto;
     height: 30vh;
+    width: 30vw;
     padding: 10px;
 }
 
@@ -57,13 +53,24 @@ a:visited { color: var(--icatu-azul-02); }
 a:hover { color: var(--icatu-verde); }
 a:active { color: var(--icatu-azul-03); }
 
-.with-bullets {
-    list-style-type: circle;
-    padding: 2px;
-    margin: 1px;
+ul {
+    padding: 0;
+    margin: 0;
 }
 
-li {
+ol {
+    padding: 10px;
+    margin: 10px;
+    margin-top: 5px;
+    margin-bottom: 1px;
+}
+.with-bullets {
+    list-style: decimal;
+    list-style-type: disc;
+    list-style-position: side;
+}
+
+.no-bullets {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -74,14 +81,14 @@ li {
 }
 
 .normal {
-    font-size: smaller;
+    font-size: x-small;
     font-weight: 100;
     padding-top: 4px;
     padding-bottom: 1px;
 }
 
 .small {
-    font-size: x-small;
+    font-size: xx-small;
     font-weight: lighter;
     padding-bottom: 1px;
 }
