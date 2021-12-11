@@ -115,8 +115,7 @@ function download_contents(input_field, field) {
    receives: message to be poped
 */
 function pop_message(message) {
-   clean_message = escape(message)
-   $('#show_message').html(clean_message);
+   $('#show_message').html(encodeURIComponent(message))
    setTimeout(function() { 
       $('#show_message').html('');
    }, 3000);
