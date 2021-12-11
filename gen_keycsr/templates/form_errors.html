@@ -1,45 +1,56 @@
 <div class="p-normal">
   {% if form.errors %}
   <ul class="small">
-    <h2>Errors in form:</h2>
+    <h3>Errors in form:</h3>
+    {% if form.csrf_token.errors %}
+      {% for error in form.csrf_token.errors %}
+      <li> <div class="bg-warning white">csrf_token: </div>{{ error }} </li>
+      {% endfor %}
+    {% endif %}
     {% if form.country.errors %}
       {% for error in form.country.errors %}
-      <li> country = {{ error }} </li>
+      <li> <div class="bg-warning white">country: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.state.errors %}
       {% for error in form.state.errors %}
-      <li> state = {{ error }} </li>
+      <li> <div class="bg-warning white">state: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.locality.errors %}
       {% for error in form.locality.errors %}
-      <li> locality = {{ error }} </li>
+      <li> <div class="bg-warning white">locality: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.org_name.errors %}
       {% for error in form.org_name.errors %}
-      <li> org_name = {{ error }} </li>
+      <li> <div class="bg-warning white">org_name: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.common_name.errors %}
       {% for error in form.common_name.errors %}
-      <li> Common_Name = {{ error }} </li>
+      <li> <div class="bg-warning white">Common_Name: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.email.errors %}
       {% for error in form.email.errors %}
-      <li> email = {{ error }} </li>
+      <li> <div class="bg-warning white">email: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.ipaddr.errors %}
       {% for error in form.ipaddr.errors %}
-      <li> ipaddr = {{ error }} </li>
+      <li> <div class="bg-warning white">ipaddr: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
-    {% for message in messages %}
-       <li> {{ message.category }}: {{ message.message }}</li>
-    {% endfor %}
+    <li>---</li>
   </ul>
   {% endif %}
+  <div class="small">
+    {% for message in messages %}
+        <li> 
+          {% if message.category == 'error' %}<div class="bg-warning white">{% else %}<div class="bg-success white">{% endif %}{{ message.category }}: </div>
+          {{ message.message }}
+        </li>
+    {% endfor %}
+  </div>
 </div>
