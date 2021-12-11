@@ -42,10 +42,10 @@ function generate_pair() {
        type: 'post',
        success: function (response) {
           if (response.status == 'success') {
-             $('#show_key').html(response.key)
-             $('#show_cert').html(response.cert)
+             $('#show_key').html(response.key);
+             $('#show_cert').html(response.cert);
           } else if (response.status == 'error') {
-             pop_message(response.messages)
+             pop_message(response.messages);
           }
        },
        error: function (response) {
@@ -115,7 +115,7 @@ function download_contents(input_field, field) {
    receives: message to be poped
 */
 function pop_message(message) {
-   $('#show_message').html(encodeURIComponent(message))
+   $('#show_message').html(message)
    setTimeout(function() { 
       $('#show_message').html('');
    }, 3000);
@@ -133,23 +133,4 @@ function change_csr_crt_div_title() {
       cert_title.textContent = 'CSR ';
    }
    return;
-}
-
-/** Used to map characters to HTML entities. */
-const htmlEscapes = {
-  '&': '&amp;',
-  '<': '&lt;',
-  '>': '&gt;',
-  '"': '&quot;',
-  "'": '&#39;'
-}
-
-/** Used to match HTML entities and HTML characters. */
-const reUnescapedHtml = /[&<>"']/g
-const reHasUnescapedHtml = RegExp(reUnescapedHtml.source)
-
-function escape(string) {
-  return (string && reHasUnescapedHtml.test(string))
-    ? string.replace(reUnescapedHtml, (chr) => htmlEscapes[chr])
-    : (string || '')
 }
