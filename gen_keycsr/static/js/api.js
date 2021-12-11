@@ -1,3 +1,14 @@
+/* Things to do when the document is ready to the user (after landing on page or reload)(that comment is for myself) */
+$(document).ready(function (e) {
+
+   /* uncheck, if checked, the self-signed box */
+   var self_signed = document.getElementById('self_signed');
+   self_signed.checked = false;
+   return;
+
+});
+
+
 /* calls route to generate pair. 
    response will be a json object containing
    status: 'error' 'success'
@@ -8,15 +19,19 @@
 function generate_pair() {
    var form_data = new FormData();
    
-   $("form :input").each(function(){
+   $("form :input[type=text]").each(function(){
       var field_value = $(this).val();//the value of the current input element
       var field_name = $(this).attr('name');//input name
       form_data.append(field_name, field_value);
-  });
+   });
 
-   /* corrects value of self_signed field. If I used $(this).val(), it would be always 'y' (and I don't know why) */
+   /* fields not input[type=text] */
+   var csrf_token = document.getElementById('csrf_token');
+   form_data.append('csrf_token', csrf_token.value);
    var self_signed = document.getElementById('self_signed');
-   form_data.set('self_signed', self_signed.checked); 
+   form_data.append('self_signed', self_signed.checked);
+   var email = document.getElementById('email')
+   form_data.append('email', email.value)
 
    $.ajax({
        url: '/generate_pair',
@@ -49,7 +64,7 @@ function copy_contents(input_field) {
    var copyText = document.getElementById(input_field);
 
    if (copyText.innerHTML.trim() == '') {
-      pop_message('<h2>Copy to clipboard:</h2><span class="small">Please, generate key/csr pair before copying to clipboard.<span>');
+      pop_message('<span class="small"><div class="bg-warning white">Copy to clipboard:</div>Please, generate key/csr pair before copying to clipboard.<span>');
       return;
    }
 
@@ -57,13 +72,14 @@ function copy_contents(input_field) {
       navigator.clipboard.writeText(copyText.innerHTML);
    }
    catch (error) {
-      pop_message('<h2>Error copying to clipboard ' + error + '</h2>');
+      pop_message('<span class="small"><div class="bg-warning white">Error copying to clipboard</div> ' + error + '</span>');
       return;
    }
 
    /* Alert the copied text */
-   pop_message('<h2>text copied to clipboard</h2>');
+   pop_message('<div class="small white tw-bold">Text copied to clipboard</div>');
 
+   return;
 } 
 
 /* Offers the innertHTML contents of an element as a text/text download
@@ -73,7 +89,7 @@ function download_contents(input_field, field) {
    var copyText = document.getElementById(input_field);
 
    if (copyText.innerHTML.trim() == '') {
-      pop_message('<h2>Download:</h2><span class="small">Please, generate key/csr pair before downloading.<span>');
+      pop_message('<span class="small"><div class="bg-warning white">Download:</div>Please, generate key/csr pair before downloading.<span>');
       return;
    }
  
@@ -91,6 +107,8 @@ function download_contents(input_field, field) {
    a.download = common_name + '.' + extension;
    a.href = 'data:text/text;base64,' + base64_contents;
    a.dispatchEvent(e);
+
+   return;
 }
 
 /* just pops a message using a field that gets visible when not empty
@@ -114,4 +132,5 @@ function change_csr_crt_div_title() {
    } else {
       cert_title.textContent = 'CSR ';
    }
+   return;
 }
