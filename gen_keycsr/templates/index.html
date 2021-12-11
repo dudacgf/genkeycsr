@@ -10,15 +10,15 @@
   </div>
   {% include "instructions.html" %}
 </section>
-<section class="content icatu-azul-01 bg-light">
+<section class="content">
   <p />
   <div>
     <hr>
     <form method="POST" action="/">
-      <section class="content-row form-title tw-bold" style="text-align: center">Certificate Attributes</section>
+      <section class="content-row form-title" style="text-align: center"><h2>Certificate Attributes</h2></section>
       <section id="theForm" class="content-form">
         {{ form.csrf_token }}
-        <div></div><div class="warning small">* required fields</div>
+        <div class="p-none"></div><div class="warning small p-none">* required fields</div>
         <div class="ta-right normal">{{ form.country.label }}<span class="warning small">*</span>:</div>
         <div>{{ form.country }}</div>
         <div class="ta-right normal">{{ form.state.label }}<span class="warning small">*</span>:</div>
