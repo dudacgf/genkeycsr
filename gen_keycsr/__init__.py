@@ -5,8 +5,7 @@ from flask.helpers import get_flashed_messages
 from flask.json import jsonify
 from flask_fontawesome import FontAwesome
 
-from .libs.genkeycsr import (CertNameAttribute, generate_key, generate_cert_sign_request, 
-                            generate_cert_self_signed, key_to_pem, csr_to_pem, sscrt_to_pem)
+from .libs.genkeycsr import CertNameAttributes, CriptographyGenerator
 from .libs.frmattributes import GenKeyCSRForm
 
 app = Flask(__name__)
@@ -49,7 +48,6 @@ def flash_messages_to_dict():
             get_flashed_messages(with_categories=True)];
     return messages
 
-
 #
 # route that generates the key/(csr/self-signed crt) pair and sends it back.
 # receives: request.formdata with the certificate attributes
@@ -61,31 +59,32 @@ def generate_pair():
         flash('--error validating form--')
         return jsonify({'status': 'error', 'messages': render_template('form_errors.html', form=form, messages = flash_messages_to_dict())})
 
-    attributes = CertNameAttribute()
+    attributes = CertNameAttributes()
     form.populate_obj(attributes)
     
     # generate the private key
-    key = generate_key(app.config['GENKEYCSR_KEY_SIZE'])
+    generator = CriptographyGenerator(attributes=attributes)
+    key = generator.new_key()
     if key is None:
         flash('error', 'problem generating the key/csr pai.r')
         return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
 
     # generate the csr/self-signed crt depending on self_signed checkbox received from form
     if not attributes.self_signed:
-        cert = generate_cert_sign_request(key, attributes)
+        cert = generator.new_csr()
         if cert is None:
             flash('error', 'problem generating certificate signing request.')
             return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
-        cert_pem = csr_to_pem(cert)
+        cert_pem = generator.csr_to_pem()
     else:
-        cert = generate_cert_self_signed(key, attributes)
+        cert = generator.new_ss_crt()
         if cert is None:
             flash('error', 'problem generating self-signed certificate.')
             return jsonify({'status': 'error', 'messages': flash_messages_to_dict()})
-        cert_pem = sscrt_to_pem(cert)
+        cert_pem = generator.sscrt_to_pem()
 
     flash('success', 'key/cert (signing request or self-signed) pair generated successfuly')
-    return jsonify({'status': 'success', 'key': key_to_pem(key), 'cert': cert_pem})
+    return jsonify({'status': 'success', 'key': generator.key_to_pem(), 'cert': cert_pem})
 
 # 
 # main route. populate form with attribute default values (mine or from configuration {file}.py)
