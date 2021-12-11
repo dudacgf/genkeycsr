@@ -27,7 +27,7 @@ app.config.from_mapping(
     GENKEYCSR_COMMON_NAME = 'CHANGE-ME.COMMON.name',
     GENKEYCSR_EMAIL = '',
     GENKEYCSR_LOGO = 'images/keycsr_default_logo.jpg',
-    GENKEYCSR_FAVICON = 'images/keycsr_default_logo.png'
+    GENKEYCSR_FAVICON = 'images/keycsr_default_favicon.png'
 )
 # you can put any config option in a python file and set its path via ENVVAR GENKEYCSR_CONFIG_PATH
 if 'GENKEYCSR_CONFIG_PATH' in os.environ:
