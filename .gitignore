@@ -131,3 +131,6 @@ dmypy.json
 # vs code workspace 
 *.code-workspace
 .vscode/
+
+# project local configuration file 
+config.py
