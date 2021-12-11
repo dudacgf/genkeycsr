@@ -4,50 +4,50 @@
     <h3>Errors in form:</h3>
     {% if form.csrf_token.errors %}
       {% for error in form.csrf_token.errors %}
-      <li> <div class="bg-warning white">csrf_token: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">csrf_token: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.country.errors %}
       {% for error in form.country.errors %}
-      <li> <div class="bg-warning white">country: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">country: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.state.errors %}
       {% for error in form.state.errors %}
-      <li> <div class="bg-warning white">state: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">state: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.locality.errors %}
       {% for error in form.locality.errors %}
-      <li> <div class="bg-warning white">locality: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">locality: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.org_name.errors %}
       {% for error in form.org_name.errors %}
-      <li> <div class="bg-warning white">org_name: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">org_name: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.common_name.errors %}
       {% for error in form.common_name.errors %}
-      <li> <div class="bg-warning white">Common_Name: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">Common_Name: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.email.errors %}
       {% for error in form.email.errors %}
-      <li> <div class="bg-warning white">email: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">email: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
     {% if form.ipaddr.errors %}
       {% for error in form.ipaddr.errors %}
-      <li> <div class="bg-warning white">ipaddr: </div>{{ error }} </li>
+      <li class="no-bullets"> <div class="bg-warning white">ipaddr: </div>{{ error }} </li>
       {% endfor %}
     {% endif %}
-    <li>---</li>
+    <li class="no-bullets">---</li>
   </ul>
   {% endif %}
   <div class="small">
     {% for message in messages %}
-        <li> 
+        <li class="no-bullets"> 
           {% if message.category == 'error' %}<div class="bg-warning white">{% else %}<div class="bg-success white">{% endif %}{{ message.category }}: </div>
           {{ message.message }}
         </li>
