@@ -115,6 +115,7 @@ function download_contents(input_field, field) {
    receives: message to be poped
 */
 function pop_message(message) {
+   clean_message = escape(message)
    $('#show_message').html(message);
    setTimeout(function() { 
       $('#show_message').html('');
@@ -133,4 +134,23 @@ function change_csr_crt_div_title() {
       cert_title.textContent = 'CSR ';
    }
    return;
+}
+
+/** Used to map characters to HTML entities. */
+const htmlEscapes = {
+   '&': '&amp;',
+   '<': '&lt;',
+   '>': '&gt;',
+   '"': '&quot;',
+   "'": '&#39;'
+ }
+ 
+/** Used to match HTML entities and HTML characters. */
+const reUnescapedHtml = /[&<>"']/g
+const reHasUnescapedHtml = RegExp(reUnescapedHtml.source)
+
+function escape(string) {
+  return (string && reHasUnescapedHtml.test(string))
+    ? string.replace(reUnescapedHtml, (chr) => htmlEscapes[chr])
+    : (string || '')
 }
