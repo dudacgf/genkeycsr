@@ -116,7 +116,7 @@ function download_contents(input_field, field) {
 */
 function pop_message(message) {
    clean_message = escape(message)
-   $('#show_message').html(message);
+   $('#show_message').html(clean_message);
    setTimeout(function() { 
       $('#show_message').html('');
    }, 3000);
