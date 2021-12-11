@@ -56,7 +56,7 @@ def flash_messages_to_dict():
 def generate_pair():
     form = GenKeyCSRForm()
     if not form.validate_on_submit():
-        flash('error', 'Problem validating form. Try reloading the page.')
+        flash('error', 'Problem(s) validating the form. Try reloading the page.')
         return jsonify({'status': 'error', 'messages': render_template('form_errors.html', form=form, messages = flash_messages_to_dict())})
 
     attributes = CertNameAttributes()
