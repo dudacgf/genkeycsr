@@ -1,9 +1,12 @@
-#!/usr/bin/python3.9
+#!/usr/bin/python3
 
 import sys
 import os
 import site
 
+# python 3.6
+#site.addsitedir('/var/www/genkeycsr/.env/lib/python3.6/site-packages')
+# python 3.9
 site.addsitedir('/var/www/genkeycsr/.env/lib/python3.9/site-packages')
 
 # if you want to change default config values, copy the sample_config.py file under docs/ 
