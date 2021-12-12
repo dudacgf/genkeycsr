@@ -10,6 +10,6 @@ GENKEYCSR_COMMON_NAME='CHANGE-ME.genkey.gk'
 GENKEYCSR_EMAIL='contact@genkey.gk'
 
 # logo and favicon are relative to the static folder
-GENKEYCSR_LOGO='images/keycsr_default_logo.png'
-GENKEYCSR_FAVICON='images/keycsr_default_favicon.jpg'
+GENKEYCSR_LOGO='images/keycsr_default_logo.jpg'
+GENKEYCSR_FAVICON='images/keycsr_default_favicon.png'
 
