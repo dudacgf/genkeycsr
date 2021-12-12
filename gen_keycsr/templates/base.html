@@ -11,7 +11,21 @@
         <meta name="viewport" content="width=device-width">
 
         {% block styles %}
-        <link rel="stylesheet" href="{{ url_for('.static', filename='fonts/ff-clan.css') }}" />
+        <style type="text/css">
+            @font-face {
+                font-family: 'Clan Pro News';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Clan Pro News'), url("{{ url_for('.static', filename='fonts/FFClanProRgNews.woff') }}") format('woff');
+            }
+    
+            @font-face {
+                font-family: 'Clan Pro Bold';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Clan Pro Bold'), url("{{ url_for('.static', filename='fonts/FFClanProBold.woff') }}") format('woff');
+            }
+        </style>    
         <link rel="stylesheet" href="{{ url_for('.static', filename='css/grid.css') }}" />
         <link rel="stylesheet" href="{{ url_for('.static', filename='css/text.css') }}" />
         <link rel="stylesheet" href="{{ url_for('.static', filename='css/colors.css') }}" />
