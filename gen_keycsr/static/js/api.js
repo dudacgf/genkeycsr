@@ -34,7 +34,7 @@ function generate_pair() {
    form_data.append('email', email.value)
 
    $.ajax({
-       url: '/generate_pair',
+       url: 'generate_pair',
        cache: false,
        contentType: false,
        processData: false,
