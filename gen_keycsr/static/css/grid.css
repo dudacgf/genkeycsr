@@ -89,7 +89,7 @@ content-key {
     display: grid;
     position: absolute;
     bottom: 3px;
-    left: 35px;
+    left: 3px;
     width: 1fr;
     text-align: center;
 }
