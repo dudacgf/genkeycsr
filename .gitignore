@@ -134,3 +134,6 @@ dmypy.json
 
 # project local configuration file 
 config.py
+
+# wsgi.py local file
+wsgi.py
