@@ -18,8 +18,8 @@ ________________
     # sudo apt-get install python3 python3-pip python3-virtualenv
     RedHat/CentOS 7
     # sudo yum install python3 python3-pip python3-venv
-    Under RedHat/CentOS/Rocky 8 you may install python 3.9
-    # sudo yum install python3 python3.9-pip python3.9-virtualenv
+    Under RedHat/CentOS/Rocky 8 you may (you should) install python 3.9
+    # sudo yum install python3.9 python3.9-pip python3.9-virtualenv
 
     Clone the repository
     # cd /srv
