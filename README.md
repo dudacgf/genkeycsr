@@ -7,7 +7,7 @@
 # Genkeycsr
 Genkeycsr is a Python Flask micro webpage that helps generating private keys and certificate signing requests. It is intended to be used as a helper to in premises root CA structures that cannot be served by letsencrypt or other commercial certificate authorities. It offers an option to create a self-signed certificate along with the private key but you should not use self-signed certificates and so, this options is considered for emergency use only and therefore issues a certificate valid only for 10 days.
 
-Genkeycsr is just a wrapper around the code found in the tutorial of ![pica/cryptography](https://cryptography.io/en/latest/x509/tutorial/) and only adapts it to its use. 
+Genkeycsr is just a wrapper around the code found in the tutorial of [pica/cryptography](https://cryptography.io/en/latest/x509/tutorial/) and only adapts it to its use. 
 
 It has been tested and run as a standalone site or under apache/wsgi in Ubuntu 20.04+, RedHat/Centos 7/8. But I believe it can be run under nginx or lighthttpd or any other http server that supports wsgi.
 
