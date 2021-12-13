@@ -4,19 +4,19 @@ import sys
 import os
 import site
 
-# python 3.6
-#site.addsitedir('/var/www/genkeycsr/.env/lib/python3.6/site-packages')
-# python 3.9
-site.addsitedir('/var/www/genkeycsr/.env/lib/python3.9/site-packages')
+# python 3.6 (Redhat/CentOS 7)
+#site.addsitedir('/srv/genkeycsr/.env/lib/python3.6/site-packages')
+# python 3.9 (Ubuntu 20.04+, RedHat/CentOS/Rocky 8)
+site.addsitedir('/srv/genkeycsr/.env/lib/python3.9/site-packages')
 
 # if you want to change default config values, copy the sample_config.py file under docs/ 
 # to the root of the environment and modify the options there
 #
-# you can also change the location of this file and adjust bellow
+# you can also change the location of this file and set it here
 #
-os.environ['GENKEYCSR_CONFIG_PATH'] = '/var/www/genkeycsr/config.py'
+os.environ['GENKEYCSR_CONFIG_PATH'] = '/srv/genkeycsr/config.py'
 
-sys.path.insert(0, '/var/www/genkeycsr')
+sys.path.insert(0, '/srv/genkeycsr')
 
 from gen_keycsr import app as application
 
