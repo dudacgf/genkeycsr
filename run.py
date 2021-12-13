@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from gen_keycsr import app
+from genkeycsr import app
 
 #----------------------------------------
 # launch
