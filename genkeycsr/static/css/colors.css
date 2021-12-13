@@ -1,15 +1,15 @@
 :root {
-    --icatu-azul-01: #1b3157;
-    --icatu-azul-02: #6aa2b9;
-    --icatu-azul-03: #d5dbe9;
-    --icatu-verde: #5fbb47;
-    --icatu-old-azul: #006d69;
+    --i-blue-01: #1b3157;
+    --i-blue-02: #6aa2b9;
+    --i-blue-03: #d5dbe9;
+    --i-green: #5fbb47;
+    --i-old-blue: #006d69;
 
     --primary: #6f6f6f;
     --secondary: #cfcfcf;
     --warning: #aa1e1e;
-    --success: var(--icatu-verde);
-    --info: var(--icatu-old-azul);
+    --success: var(--i-green);
+    --info: var(--i-old-blue);
     --error: #f56012;
     --dark: #303030;
     --light: #eeeeee;
@@ -55,15 +55,15 @@ border { border-width: solid 1rem; }
 .b-light { border-color: var(--light); }
 .b-white { border-color: var(--white); }
 
-.icatu-azul-01 { color: var(--icatu-azul-01); }
-.icatu-azul-02 { color: var(--icatu-azul-02); }
-.icatu-azul-03 { color: var(--icatu-azul-03); }
-.icatu-verde { color: var(--icatu-verde) }
-.icatu-old-azul { color: var(--icatu-old-azul); }
+.i-blue-01 { color: var(--i-blue-01); }
+.i-blue-02 { color: var(--i-blue-02); }
+.i-blue-03 { color: var(--i-blue-03); }
+.i-green { color: var(--i-green) }
+.i-old-blue { color: var(--i-old-blue); }
 
-.bg-icatu-azul-01 { background-color: var(--icatu-azul-01) }
-.bg-icatu-azul-02 { background-color: var(--icatu-azul-02); }
-.bg-icatu-azul-03 { background-color: var(--icatu-azul-03); }
-.bg-icatu-verde { background-color: var(--icatu-verde) }
-.bg-icatu-old-azul { background-color: var(--icatu-old-azul); }
+.bg-i-blue-01 { background-color: var(--i-blue-01) }
+.bg-i-blue-02 { background-color: var(--i-blue-02); }
+.bg-i-blue-03 { background-color: var(--i-blue-03); }
+.bg-i-green { background-color: var(--i-green) }
+.bg-i-old-blue { background-color: var(--i-old-blue); }
 

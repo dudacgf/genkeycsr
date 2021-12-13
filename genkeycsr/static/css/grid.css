@@ -12,6 +12,7 @@
     grid-column-end: 2;
     grid-row-start: 1;
     height: 100vh;
+    border-right: 0.2px solid var(--secondary);
 }
 
 .header {

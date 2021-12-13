@@ -31,14 +31,14 @@ hr {
     margin-left: 5%;
     margin-right: 5%;
     height: 0.001rem;
-    color: var(--icatu-verde);
+    color: var(--i-green);
     border-style: solid;
 }
 
 pre {
     font-family:'Courier New', Courier, monospace;
     font-size: xx-small;
-    border: 1px dotted var(--icatu-azul-01);
+    border: 1px dotted var(--i-blue-01);
     color: black;
     background-color: white;
     overflow: auto;
@@ -48,10 +48,10 @@ pre {
 }
 
 a { text-decoration: none; }
-a:link { color: var(--icatu-azul-01); }
-a:visited { color: var(--icatu-azul-02); }
-a:hover { color: var(--icatu-verde); }
-a:active { color: var(--icatu-azul-03); }
+a:link { color: var(--i-blue-01); }
+a:visited { color: var(--i-blue-02); }
+a:hover { color: var(--i-green); }
+a:active { color: var(--i-blue-03); }
 
 ul {
     padding: 0;

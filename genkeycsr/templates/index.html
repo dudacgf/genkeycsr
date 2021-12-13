@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="header light bg-icatu-azul-01"> 
-    <h1>Certificate Key/Signing Request</h1> 
-</section>
-<section class="nav-left icatu-azul-01 ">
-  <div style="text-align: center">
-    <img src={{ url_for('.static', filename=config['GENKEYCSR_LOGO']) }} width="auto" height="80"/>
+<section class="nav-left i-blue-01">
+  <div style="text-align: center; height: 80px">
+    <img src={{ url_for('.static', filename=config['GENKEYCSR_LOGO']) }} width="auto" height="80px"/>
   </div>
   {% include "instructions.html" %}
+</section>
+<section class="header light bg-i-blue-01"> 
+    <h1>Certificate Key/Signing Request</h1> 
 </section>
 <section class="content">
   <p />
