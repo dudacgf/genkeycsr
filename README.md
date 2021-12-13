@@ -178,7 +178,7 @@ os.environ['GENKEYCSR_CONFIG_PATH'] = '/srv/genkeycsr/config.py'
 
 sys.path.insert(0, '/srv/genkeycsr')
 
-from gen_keycsr import app as application
+from genkeycsr import app as application
 
 application.config['ready'] = True
 ~~~
