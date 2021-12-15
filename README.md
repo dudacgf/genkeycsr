@@ -112,7 +112,7 @@ Well, it's kind of obvious, really. You call the page, fill in all the fields an
     # sudo yum install python3-mod_wsgi
 
     Copy the sample configuration from the docs/ folder to apache
-    # cd /serv/genkeycsr
+    # cd /srv/genkeycsr
     # sudo cp docs/genkeycsr.conf /etc/httpd/conf.d
     
     Adjust settings (paths, ports, ssl certificates etc)
