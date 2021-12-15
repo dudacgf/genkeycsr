@@ -17,6 +17,7 @@ app.config.from_mapping(
     SECRET_KEY = os.urandom(24),
     UPLOAD_FOLDER = '/var/tmp',
     SESSION_COOKIE_SAMESITE = "Lax",
+	DEBUG = False,
     # FICTITIOUS COUNTRY TO FILL THE FORM FIELDS
     GENKEYCSR_KEY_SIZE = 2048,
     GENKEYCSR_COUNTRY = 'AU',

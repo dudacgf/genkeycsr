@@ -25,7 +25,7 @@ class GenKeyCSRForm(FlaskForm):
                           validators=[DataRequired(message='Please enter a valid IP Address.'), 
                           IPAddress(ipv4=True, ipv6=False, message='please enter a valid IP address')])
     self_signed = BooleanField('Self Signed', false_values=None,
-                          render_kw={"onclick": 'change_csr_crt_div_title()'})
+                          render_kw={"onclick": 'change_csr_crt_div_title()', 'class': 'ff-default'})
 
     def validate_country(form, field):
         try:
