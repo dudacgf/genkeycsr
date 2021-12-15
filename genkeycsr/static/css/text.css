@@ -1,12 +1,16 @@
-## Linux: DejaVu
-## MS: Tahoma
-## 
 body {
     font-family: 'Clan Pro News', 'DejaVu Sans', 'Tahoma', 'Geneva', 'Arial', 'sans';
-    display: grid;
 }
 
 .ff-default { 
+    font-family: 'Clan Pro News', 'DejaVu Sans', 'Tahoma', 'Geneva', 'Arial', 'sans';
+}
+
+div {
+    font-family: 'Clan Pro News', 'DejaVu Sans', 'Tahoma', 'Geneva', 'Arial', 'sans';
+}
+
+span {
     font-family: 'Clan Pro News', 'DejaVu Sans', 'Tahoma', 'Geneva', 'Arial', 'sans';
 }
 
@@ -35,6 +39,10 @@ h3 {
     margin: 0;
 }
 
+@font-feature-values {
+
+}
+
 hr {
     margin-left: 5%;
     margin-right: 5%;
@@ -44,7 +52,7 @@ hr {
 }
 
 pre {
-    font-family: 'DejaVu Mono', 'Lucida Console', 'Monaco', 'Courier New', monospace;
+    font-family: 'DejaVu Sans Mono', 'Lucida Console', 'Monaco', 'Courier New', monospace;
     font-size: xx-small;
     border: 1px dotted var(--i-blue-01);
     color: black;
@@ -98,7 +106,6 @@ ol {
 .small {
     font-size: xx-small;
     font-weight: lighter;
-    padding-bottom: 1px;
 }
 
 .tw-bold {
