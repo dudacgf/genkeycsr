@@ -65,21 +65,24 @@ content-key {
 
 .content-message {
     position: absolute;
-    top: 10%;
-    left: 30%;
-    width: 400px;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-auto-rows: 80%;
+    top: 30%;
+    left: 45%;
+    max-width: 600px;
     margin-top: 2%;
     margin-bottom: 2%;
     padding: 10px;
-    background-color: var(--dark);
-    opacity:0.75;
-    color: var(--white);
-    border: 1px solid var(--dark);
-    border-radius: 10px;
-    z-index:10000; 
+    background-color: var(--white);
+    color: var(--dark);
+    border: 2px inset var(--primary);
+    opacity: 85%;
+    border-radius: 7px;
+    -webkit-box-shadow: 5px 5px 7px 0px var(--dark);
+    -moz-box-shadow: 5px 5px 7px 0px var(--dark);
+    box-shadow: 5px 5px 7px 0px var(--dark);
+    font-size: x-small;
+    font-weight: bold;
+    font-family: 'Clan Pro News', 'DejaVu Sans', 'Tahoma', 'Geneva', 'Arial', 'sans';
+    z-index:10000;
 }
 
 .content-message:empty {

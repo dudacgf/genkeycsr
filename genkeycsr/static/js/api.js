@@ -49,7 +49,7 @@ function generate_pair() {
           }
        },
        error: function (response) {
-           console.log('error')
+           pop_message(response.message)
        }
    });
 
@@ -64,7 +64,7 @@ function copy_contents(input_field) {
    var copyText = document.getElementById(input_field);
 
    if (copyText.innerHTML.trim() == '') {
-      pop_message('<span class="small"><div class="bg-warning white">Copy to clipboard:</div>Please, generate key/csr pair before copying to clipboard.<span>');
+      pop_message('Copy to clipboard:<br />Please, generate key/csr pair before copying to clipboard.');
       return;
    }
 
@@ -72,12 +72,12 @@ function copy_contents(input_field) {
       navigator.clipboard.writeText(copyText.innerHTML);
    }
    catch (error) {
-      pop_message('<span class="small"><div class="bg-warning white">Error copying to clipboard</div> ' + error + '</span>');
+      pop_message('Error copying to clipboard:<br />' + error);
       return;
    }
 
    /* Alert the copied text */
-   pop_message('<div class="small white tw-bold">Text copied to clipboard</div>');
+   pop_message('Text copied to clipboard');
 
    return;
 } 
@@ -89,7 +89,7 @@ function download_contents(input_field, field) {
    var copyText = document.getElementById(input_field);
 
    if (copyText.innerHTML.trim() == '') {
-      pop_message('<span class="small"><div class="bg-warning white">Download:</div>Please, generate key/csr pair before downloading.<span>');
+      pop_message('Download:<br />Please, generate key/csr pair before downloading.');
       return;
    }
  
