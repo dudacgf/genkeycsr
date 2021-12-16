@@ -11,14 +11,12 @@
     <h1>Certificate Key/Signing Request</h1> 
 </section>
 <section class="content">
-  <p />
   <div>
     <hr>
     <form method="POST" action="/">
       <section class="content-row form-title" style="text-align: center"><h2>Certificate Attributes</h2></section>
       <section id="theForm" class="content-form">
-        {{ form.csrf_token }}
-        <div class=" "></div><div class="warning small  ">* required fields</div>
+        <div></div><div class="warning small">* required fields</div>
         <div class="ta-right normal">{{ form.country.label }}<span class="warning small">*</span>:</div>
         <div>{{ form.country }}</div>
         <div class="ta-right normal">{{ form.state.label }}<span class="warning small">*</span>:</div>
@@ -35,9 +33,9 @@
         <div>{{ form.email }}</div>
         <div class="ta-right normal">{{ form.ipaddr.label }}<span class="warning small">*</span>:</div>
         <div>{{ form.ipaddr }}</div>
-        <div class="ta-right normal">{{ form.self_signed.label }}<span class="warning small">*</span>:</div>
-        <div>{{ form.self_signed }}</div>
-        
+        <div class="ta-right normal">{{ form.self_signed.label }}:</div>
+        <div style='margin-left: -4px;'>{{ form.self_signed }}</div>
+        {{ form.csrf_token }}
       </section>
       <div class="content-row" style="text-align: center;">
         <hr>
