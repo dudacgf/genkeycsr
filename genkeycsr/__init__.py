@@ -94,7 +94,7 @@ def generate_pair():
 # 
 # main route. populates form with attribute default values (mine or from configuration {file}.py)
 @app.route('/', methods=['POST', 'GET'])
-def vstest():
+def main_route():
     form = GenKeyCSRForm()            
     form.country.data=app.config['GENKEYCSR_COUNTRY']
     form.state.data=app.config['GENKEYCSR_STATE']
