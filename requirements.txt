@@ -4,5 +4,5 @@ flask-fontawesome>=0.1.5
 Flask-WTF>=1.0.0
 iso3166>=2.0.2
 validators>=0.21.0
-Werkzeug>=2.0.2
+Werkzeug>=3.0.1
 WTForms>=3.0.0
