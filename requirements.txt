@@ -6,3 +6,4 @@ iso3166>=2.0.2
 validators>=0.21.0
 Werkzeug>=3.0.1
 WTForms>=3.0.0
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
